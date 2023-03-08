@@ -1,8 +1,8 @@
 ﻿using ChallengeApp;
 
-var emp1 = new Employee("Kamil", "Kowalski", "54");
-var emp2 = new Employee("Magda", "Nowak", "21");
-var emp3 = new Employee("Bartek", "Pudzianowski", "49");
+var emp1 = new Employee("Kamil");
+var emp2 = new Employee("Magda");
+var emp3 = new Employee("Bartek");
 
 emp1.AddGrade(4);
 emp1.AddGrade(4);

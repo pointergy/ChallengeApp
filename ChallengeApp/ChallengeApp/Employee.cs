@@ -1,8 +1,8 @@
 ﻿namespace ChallengeApp
 {
-    class Employee
+    public class Employee
     {
-        private List<int> grades;
+        public List<int> grades;
 
         public string Name { get; }
 
@@ -12,17 +12,20 @@
 
         public int sum = 0;
 
-        public Employee(string name, string surname, string age)
+        public Employee(string name)
         {
             this.grades = new List<int>();
             this.Name = name;
-            this.Surname = surname;
-            this.Age = age;
         }
         public void AddGrade(int grade)
         {
             this.grades.Add(grade);
             sum += grade;
+        }
+        public void MinusGrade(int minus)
+        {
+            this.grades.Add(minus);
+            sum += minus;
         }
     }
 }
