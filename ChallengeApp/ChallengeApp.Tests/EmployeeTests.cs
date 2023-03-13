@@ -3,21 +3,45 @@ namespace ChallengeApp.Tests
     public class Tests
     {
         [Test]
-        public void WhenUserCollectTwoGrades_ShouldReturnCorrectResult()
+        public void GetStatisticsReturnsCorrectMax()
         {
-            var emp = new Employee("Piotr");
-            emp.AddGrade(5);
-            emp.AddGrade(6);
-            emp.MinusGrade(-11);
-            var result = emp.sum;
+            var emp1 = new Employee("name1", "surname1");
 
-            Assert.AreEqual(0, result);
+            emp1.AddGrade(2);
+            emp1.AddGrade(4);
+            emp1.AddGrade(3);
+
+            var statistics = emp1.GetStatistics();
+
+            Assert.AreEqual(4, statistics.Max);
         }
 
         [Test]
-        public void Test2()
+        public void GetStatisticsReturnsCorrectMin()
         {
-            Assert.Pass();
+            var emp1 = new Employee("name1", "surname1");
+
+            emp1.AddGrade(2);
+            emp1.AddGrade(4);
+            emp1.AddGrade(3);
+
+            var statistics = emp1.GetStatistics();
+
+            Assert.AreEqual(2, statistics.Min);
+        }
+
+        [Test]
+        public void GetStatisticsReturnsCorrectAverage()
+        {
+            var emp1 = new Employee("name1", "surname1");
+
+            emp1.AddGrade(2);
+            emp1.AddGrade(4);
+            emp1.AddGrade(3);
+
+            var statistics = emp1.GetStatistics();
+
+            Assert.AreEqual(Math.Round(3.00, 2), Math.Round(statistics.Average, 2));
         }
     }
 }

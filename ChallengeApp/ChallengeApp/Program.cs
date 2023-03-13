@@ -1,43 +1,13 @@
 ﻿using ChallengeApp;
 
-var emp1 = new Employee("Kamil");
-var emp2 = new Employee("Magda");
-var emp3 = new Employee("Bartek");
+var employee = new Employee("Pitor", "Pipi");
+employee.AddGrade("2");
+employee.AddGrade(400);
+employee.AddGrade("Pitto");
+employee.AddGrade(1);
+employee.AddGrade(3);
+var statistics = employee.GetStatistics();
 
-emp1.AddGrade(4);
-emp1.AddGrade(4);
-emp1.AddGrade(4);
-emp1.AddGrade(4);
-emp1.AddGrade(4);
-
-emp2.AddGrade(3);
-emp2.AddGrade(3);
-emp2.AddGrade(3);
-emp2.AddGrade(3);
-emp2.AddGrade(3);
-
-emp3.AddGrade(2);
-emp3.AddGrade(2);
-emp3.AddGrade(2);
-emp3.AddGrade(2);
-emp3.AddGrade(2);
-
-List<Employee> employees = new List<Employee>()
-{
-    emp1, emp2, emp3
-};
-
-int maxResult = 0;
-Employee employeeWithMaxResult = null;
-
-foreach(var emp in employees)
-{
-    if(emp.sum > maxResult)
-    {
-        employeeWithMaxResult = emp;
-    }
-    maxResult = emp.sum;
-}
-
-Console.WriteLine($"Employee of the month: {employeeWithMaxResult.Name} {employeeWithMaxResult.Surname}" +
-    $" {employeeWithMaxResult.Age} with the score: {employeeWithMaxResult.sum}");
+Console.WriteLine($"Average: {statistics.Average:N2}");
+Console.WriteLine($"Min: {statistics.Min}");
+Console.WriteLine($"Max: {statistics.Max}");
