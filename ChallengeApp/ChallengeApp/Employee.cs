@@ -24,7 +24,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("Invalid grade value");
+                throw new Exception("Invalid grade value");
             }
         }
 
@@ -60,7 +60,7 @@ namespace ChallengeApp
             }
             else
             {
-                Console.WriteLine("Grade is not a number");
+                throw new Exception("Grade is not a number");
             }
         }
 
@@ -80,6 +80,7 @@ namespace ChallengeApp
         {
             switch (grade)
             {
+                case 'a':
                 case 'A':
                     this.grades.Add(100);
                     break;
@@ -99,8 +100,42 @@ namespace ChallengeApp
                 case 'E':
                     this.grades.Add(20);
                     break;
+                case 'F':
+                case 'f':
+                    this.grades.Add(0);
+                    break;
+                case '1':
+                    this.grades.Add(1);
+                    break;
+                case '0':
+                    this.grades.Add(0);
+                    break;
+                case '2':
+                    this.grades.Add(2);
+                    break;
+                case '3':
+                    this.grades.Add(3);
+                    break;
+                case '4':
+                    this.grades.Add(4);
+                    break;
+                case '5':
+                    this.grades.Add(5);
+                    break;
+                case '6':
+                    this.grades.Add(6);
+                    break;
+                case '7':
+                    this.grades.Add(7);
+                    break;
+                case '8':
+                    this.grades.Add(8);
+                    break;
+                case '9':
+                    this.grades.Add(9);
+                    break;
                 default:
-                    Console.WriteLine("Wrong letter!");
+                    throw new Exception("Wrong letter!");
                     break;
             }
         }
@@ -118,8 +153,9 @@ namespace ChallengeApp
                 statistics.Min = Math.Min(statistics.Min, grade);
                 statistics.Average += grade;
             }
-    
-            switch(statistics.Average)
+            statistics.Average /= this.grades.Count;
+
+            switch (statistics.Average)
             {
                 case var average when average >= 90:
                     statistics.AverageLetter = 'A';
@@ -140,12 +176,7 @@ namespace ChallengeApp
                     statistics.AverageLetter = 'F';
                     break;
             }
-
-            statistics.Average /= this.grades.Count;
-            Console.WriteLine($"Average: {statistics.Average:N2}");
-            Console.WriteLine($"Min: {statistics.Min}");
-            Console.WriteLine($"Max: {statistics.Max}");
-            Console.WriteLine(statistics.AverageLetter);
+            
             return statistics;
         }   
     }
