@@ -2,14 +2,20 @@
 
 namespace ChallengeApp
 {
-    public class Employee
+    public class Employee : Person
     {
         private List<float> grades = new List<float>();
 
         public Employee(string name, string surname)
+            : base(name, surname)
         {
             this.Name = name;
             this.Surname = surname;
+        }
+        public Employee(string name)
+            : this(name, "no surname")
+        {
+            this.Name = name;
         }
 
         public string Name { get; private set; }
@@ -27,31 +33,6 @@ namespace ChallengeApp
                 throw new Exception("Invalid grade value");
             }
         }
-
-        //public void AddGrade(double grade)
-        //{
-        //    if (grade>= 0 && grade <= 100)
-        //    {
-        //        this.grades.Add((float)grade);
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Invalid grade value");
-        //    }
-        //}
-
-        //public void AddGrade(long grade)
-        //{
-        //    if (grade >= 0 && grade <= 100)
-        //    {
-        //        this.grades.Add((long)grade);
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Invalid grade value");
-        //    }
-        //}
-
         public void AddGrade(string grade)
         {
             if (float.TryParse(grade, out float result))
@@ -63,19 +44,6 @@ namespace ChallengeApp
                 throw new Exception("Grade is not a number");
             }
         }
-
-        //public void AddGrade(int grade)
-        //{
-        //    if (grade >= 0 && grade <= 100)
-        //    {
-        //        this.grades.Add((int)grade);
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Invalid grade value");
-        //    }
-        //}       
-
         public void AddGrade(char grade)
         {
             switch (grade)
